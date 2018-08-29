@@ -1,8 +1,8 @@
 #include <fstream>
 #include <iostream>
 
-#include "typedefs.hpp"
 #include "SHA512.hpp"
+#include "util.hpp"
 
 int main(int argc, char* argv[]) {
   if(argc!=2) {
@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
   ifs.close();
   //get and print hash
   std::vector<byte> hash = SHA512::hash(data);
-  SHA512::printBytes(hash,64);
+  Debug::printBytes(hash,64);
   std::cout << "  " << argv[1] << std::endl;
   return 0;
 }

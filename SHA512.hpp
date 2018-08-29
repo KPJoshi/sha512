@@ -1,6 +1,6 @@
 #include <vector>
 
-#include "typedefs.hpp"
+#include "util.hpp"
 
 class SHA512 {
 
@@ -24,12 +24,8 @@ class SHA512 {
 
   static inline word rr(const word num, const word shift);
 
-  static void printWords(const std::vector<word>& list, const word length);
-
 public:
 
   static std::vector<byte> hash(const std::vector<byte>& data);
-
-  static void printBytes(const std::vector<byte>& list, const word length);
 
 };

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-#include "typedefs.hpp"
 #include "SHA512.hpp"
+#include "util.hpp"
 
 inline word SHA512::rr(const word num, const word shift) {
   return (num>>shift)|(num<<(64-shift));
@@ -32,7 +32,7 @@ std::vector<byte> SHA512::hash(const std::vector<byte>& data) {
   for(word i=0; i<8; ++i)
     padding[zeroPadLength+16-i] = (lengthInBits>>(i<<3))&0xff;
   //printf("%lu\n",zeroPadLength+17);
-  //printBytes(padding,zeroPadLength+17);printf("\n");
+  //Debug::printBytes(padding,zeroPadLength+17);printf("\n");
   const word totalLength = length+zeroPadLength+17;
   //main loop
   word offset=0;
@@ -48,7 +48,7 @@ std::vector<byte> SHA512::hash(const std::vector<byte>& data) {
       w[i>>3] |= dataByte<<shift;
       ++offset;
     }
-    //printWords(w,16);printf("\n");
+    //Debug::printWords(w,16);printf("\n");
     //extend data in word array
     for(word i=16; i<80; ++i) {
       word s0 = rr(w[i-15],1)^rr(w[i-15],8)^(w[i-15]>>7);
@@ -79,21 +79,11 @@ std::vector<byte> SHA512::hash(const std::vector<byte>& data) {
     //add compressed chunk to hash
     for(word i=0; i<8; ++i)
       h[i] += l[i];
-    //printWords(h,8);printf("\n");
+    //Debug::printWords(h,8);printf("\n");
   }
   //output
   std::vector<byte> output(64);
   for(word i=0; i<64; ++i)
     output[i] = (h[i>>3]>>((7-(i&0x07))<<3))&0xff;
   return output;
-}
-
-void SHA512::printBytes(const std::vector<byte>& list, const word length) {
-  for(int i=0; i<length; ++i)
-    printf("%02x",list[i]);
-}
-
-void SHA512::printWords(const std::vector<word>& list, const word length) {
-  for(int i=0; i<length; ++i)
-    printf("%016lx\n",list[i]);
 }
