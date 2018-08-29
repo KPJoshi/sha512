@@ -13,16 +13,14 @@ int main(int argc, char* argv[]) {
   //not good for big files
   std::ifstream ifs(argv[1], std::ios::binary|std::ios::ate);
   std::ifstream::pos_type pos = ifs.tellg();
-  unsigned long dataLen = pos;
-  byte* data = new byte[dataLen];
+  std::size_t dataLen = static_cast<std::size_t>(pos);
+  std::vector<byte> data(dataLen);
   ifs.seekg(0, std::ios::beg);
-  ifs.read((char*)data,dataLen);
+  ifs.read(reinterpret_cast<char*>(&data.front()),dataLen);
   ifs.close();
   //get and print hash
-  byte* hash = SHA512::hash(data,dataLen);
+  std::vector<byte> hash = SHA512::hash(data);
   SHA512::printBytes(hash,64);
   std::cout << "  " << argv[1] << std::endl;
-  delete[] data;
-  delete[] hash;
   return 0;
 }
