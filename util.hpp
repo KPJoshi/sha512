@@ -1,3 +1,6 @@
+#ifndef UTIL_HPP
+#define UTIL_HPP
+
 #include <cstdint>
 #include <vector>
 
@@ -11,3 +14,5 @@ namespace Debug {
   void printBytes(const std::vector<byte>& list, const word length);
 
 }
+
+#endif //UTIL_HPP

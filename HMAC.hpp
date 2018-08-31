@@ -1,3 +1,6 @@
+#ifndef HMAC_HPP
+#define HMAC_HPP
+
 #include <vector>
 
 #include "util.hpp"
@@ -10,3 +13,5 @@ namespace HMAC {
                          word blockSize, word outputSize);
 
 };
+
+#endif //HMAC_HPP
