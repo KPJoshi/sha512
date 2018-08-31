@@ -17,7 +17,7 @@ void Debug::printWords(const std::vector<word>& list, const word length) {
 std::vector<byte> readBinaryFileToVector(const char* fileName) {
   std::ifstream ifs(fileName, std::ios::binary|std::ios::ate);
   std::ifstream::pos_type pos = ifs.tellg();
-  std::size_t dataLen = static_cast<std::size_t>(pos);
+  const std::size_t dataLen = static_cast<std::size_t>(pos);
   std::vector<byte> data(dataLen);
   ifs.seekg(0, std::ios::beg);
   ifs.read(reinterpret_cast<char*>(&data.front()),dataLen);

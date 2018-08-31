@@ -23,7 +23,7 @@ std::vector<byte> HMAC::hmac(std::vector<byte> key, const std::vector<byte>& mes
   ipad.reserve(blockSize+message.size());
   ipad.insert(ipad.end(),message.begin(),message.end());
   //Debug::printBytes(ipad,ipad.size());printf("\n");
-  std::vector<byte> innerHash = hash(ipad);
+  const std::vector<byte> innerHash = hash(ipad);
   //Debug::printBytes(innerHash,innerHash.size());printf("\n");
   opad.reserve(blockSize+outputSize);
   opad.insert(opad.end(),innerHash.begin(),innerHash.end());

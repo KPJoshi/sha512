@@ -60,8 +60,8 @@ std::vector<byte> SHA512::hash(const std::vector<byte>& data) {
       w[i] = 0;
     //copy data to word array
     for(word i=0; i<128; ++i) {
-      word shift = (7-(i&0x07))<<3;
-      word dataByte = (offset<length) ? data[offset] : padding[offset-length];
+      const word shift = (7-(i&0x07))<<3;
+      const word dataByte = (offset<length) ? data[offset] : padding[offset-length];
       //printf("%02lu %02lx %lu\n",shift,dataByte,offset);
       w[i>>3] |= dataByte<<shift;
       ++offset;
@@ -69,8 +69,8 @@ std::vector<byte> SHA512::hash(const std::vector<byte>& data) {
     //Debug::printWords(w,16);printf("\n");
     //extend data in word array
     for(word i=16; i<80; ++i) {
-      word s0 = rr(w[i-15],1)^rr(w[i-15],8)^(w[i-15]>>7);
-      word s1 = rr(w[i-2],19)^rr(w[i-2],61)^(w[i-2]>>6);
+      const word s0 = rr(w[i-15],1)^rr(w[i-15],8)^(w[i-15]>>7);
+      const word s1 = rr(w[i-2],19)^rr(w[i-2],61)^(w[i-2]>>6);
       w[i] = w[i-16] + s0 + w[i-7] + s1;
     }
     //initialize working variables
@@ -79,12 +79,12 @@ std::vector<byte> SHA512::hash(const std::vector<byte>& data) {
       l[i] = h[i];
     //compression loop
     for(word i=0; i<80; ++i) {
-      word S1 = rr(l[4],14)^rr(l[4],18)^rr(l[4],41);
-      word ch = (l[4]&l[5])^((~l[4])&l[6]);
-      word temp1 = l[7]+S1+ch+k[i]+w[i];
-      word S0 = rr(l[0],28)^rr(l[0],34)^rr(l[0],39);
-      word maj = (l[0]&l[1])^(l[0]&l[2])^(l[1]&l[2]);
-      word temp2 = S0+maj;
+      const word S1 = rr(l[4],14)^rr(l[4],18)^rr(l[4],41);
+      const word ch = (l[4]&l[5])^((~l[4])&l[6]);
+      const word temp1 = l[7]+S1+ch+k[i]+w[i];
+      const word S0 = rr(l[0],28)^rr(l[0],34)^rr(l[0],39);
+      const word maj = (l[0]&l[1])^(l[0]&l[2])^(l[1]&l[2]);
+      const word temp2 = S0+maj;
       l[7] = l[6];
       l[6] = l[5];
       l[5] = l[4];
