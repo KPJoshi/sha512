@@ -15,4 +15,6 @@ namespace Debug {
 
 }
 
+std::vector<byte> readBinaryFileToVector(const char* fileName);
+
 #endif //UTIL_HPP
