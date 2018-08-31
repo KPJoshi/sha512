@@ -8,9 +8,9 @@ My implementation of SHA512 and HMAC-SHA512
 ## Use
 
 * `DATAFILE` is the file to be hashed
-* `KEY` is the key for the HMAC as ASCII characters (must not contain whitespace)
+* `KEYFILE` is the file containing the key for the HMAC
 
 ```
 ./SHA512util.out DATAFILE
-./HMAC-SHA512util.out KEY DATAFILE
+./HMAC-SHA512util.out KEYFILE DATAFILE
 ```
