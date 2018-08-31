@@ -1,7 +1,0 @@
-For SHA512 utility:
-
-clang++ -std=c++11 -O3 util.cpp SHA512.cpp SHA512util.cpp -o SHA512util.out
-
-For HMAC-SHA512 utility:
-
-clang++ -std=c++11 -O3 util.cpp SHA512.cpp HMAC.cpp HMAC-SHA512util.cpp -o HMAC-SHA512util.out
