@@ -4,8 +4,7 @@
 #include "HMAC.hpp"
 #include "util.hpp"
 
-std::vector<byte> HMAC::hmac(std::vector<byte> key, const std::vector<byte>& message,
-  std::vector<byte> (*hash)(const std::vector<byte>&),word blockSize, word outputSize) {
+std::vector<byte> HMAC::hmac(std::vector<byte> key, const std::vector<byte>& message, HashFunc hash, word blockSize, word outputSize) {
   //if key too long: hash it
   if(key.size() > blockSize)
     key = hash(key);

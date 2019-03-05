@@ -7,6 +7,8 @@
 typedef uint8_t byte;
 typedef uint64_t word;
 
+typedef std::vector<byte> (*HashFunc)(const std::vector<byte>&);
+
 namespace Debug {
 
   void printWords(const std::vector<word>& list, const word length);
