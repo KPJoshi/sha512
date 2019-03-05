@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 #include "SHA512.hpp"
