@@ -9,6 +9,8 @@ typedef uint64_t word;
 
 typedef std::vector<byte> (*HashFunc)(const std::vector<byte>&);
 
+typedef std::vector<byte> (*HMACFunc)(std::vector<byte>, const std::vector<byte>&, HashFunc, word, word);
+
 namespace Debug {
 
   void printWords(const std::vector<word>& list, const word length);
