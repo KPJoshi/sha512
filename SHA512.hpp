@@ -14,7 +14,7 @@ class SHA512 {
 
 public:
 
-  static std::vector<byte> hash(const std::vector<byte>& data);
+  static byteArray hash(const byteArray& data);
 
 };
 

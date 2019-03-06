@@ -7,7 +7,7 @@
 
 namespace HMAC {
 
-  std::vector<byte> hmac(std::vector<byte> key, const std::vector<byte>& message, HashFunc hash, word blockSize, word outputSize);
+  byteArray hmac(byteArray key, const byteArray& message, HashFunc hash, word blockSize, word outputSize);
 
 };
 

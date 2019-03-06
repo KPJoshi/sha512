@@ -11,9 +11,9 @@ int main(int argc, char* argv[]) {
   }
   //read file to vector
   //not good for big files
-  const std::vector<byte> data = readBinaryFileToVector(argv[1]);
+  const byteArray data = readBinaryFileToVector(argv[1]);
   //get and print hash
-  const std::vector<byte> hash = SHA512::hash(data);
+  const byteArray hash = SHA512::hash(data);
   Debug::printBytes(hash,64);
   std::cout << "  " << argv[1] << std::endl;
   return 0;

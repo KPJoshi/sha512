@@ -13,10 +13,10 @@ int main(int argc, char* argv[]) {
   }
   //read files to vectors
   //not good for big files
-  const std::vector<byte> key  = readBinaryFileToVector(argv[1]);
-  const std::vector<byte> data = readBinaryFileToVector(argv[2]);
+  const byteArray key  = readBinaryFileToVector(argv[1]);
+  const byteArray data = readBinaryFileToVector(argv[2]);
   //get and print hmac
-  const std::vector<byte> hmac = HMAC::hmac(key,data,SHA512::hash,128,64);
+  const byteArray hmac = HMAC::hmac(key,data,SHA512::hash,128,64);
   Debug::printBytes(hmac,64);
   std::cout << "  " << argv[2] << std::endl;
   return 0;

@@ -7,7 +7,7 @@
 
 namespace PBKDF2 {
 
-  std::vector<byte> pbkdf2(HMACFunc hmac, std::vector<byte> password, std::vector<byte> salt, word iterations, word outputSize);
+  byteArray pbkdf2(HMACFunc hmac, byteArray password, byteArray salt, word iterations, word outputSize);
 
 };
 
