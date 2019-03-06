@@ -2,14 +2,14 @@
 #include "util.hpp"
 
 byteArray PBKDF2::pbkdf2(HMACFunc hmac, word hmacLen, const byteArray& password, byteArray salt, word iterations, word outputSize) {
-  byteArray output();
+  byteArray output;
   output.reserve(outputSize);
   for(word i=0; output.size()<outputSize; ++i) {
-    byteArray block();
+    byteArray block;
     //construct first message from salt and block number
     for(word j=0; j<4; ++j)
       salt.push_back((i>>(24-(j<<3)))&0xff);
-    byteArray unit();
+    byteArray unit;
     unit = hmac(password,salt);
     block = unit;
     for(word j=1; j<iterations; ++j) {
