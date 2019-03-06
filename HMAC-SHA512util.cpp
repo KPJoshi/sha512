@@ -1,5 +1,3 @@
-#include <cstring>
-#include <fstream>
 #include <iostream>
 
 #include "HMAC.hpp"

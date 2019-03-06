@@ -1,4 +1,3 @@
-#include <fstream>
 #include <iostream>
 
 #include "SHA512.hpp"
