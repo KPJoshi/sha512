@@ -1,8 +1,6 @@
 #ifndef SHA512_HPP
 #define SHA512_HPP
 
-#include <vector>
-
 #include "util.hpp"
 
 class SHA512 {

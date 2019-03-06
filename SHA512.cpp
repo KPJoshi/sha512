@@ -1,5 +1,3 @@
-#include <vector>
-
 #include "SHA512.hpp"
 #include "util.hpp"
 

@@ -1,9 +1,7 @@
-#include <vector>
-
 #include "PBKDF2.hpp"
 #include "util.hpp"
 
-byteArray pbkdf2(HMACFunc hmac, word hmacLen, const byteArray& password, byteArray salt, word iterations, word outputSize) {
+byteArray PBKDF2::pbkdf2(HMACFunc hmac, word hmacLen, const byteArray& password, byteArray salt, word iterations, word outputSize) {
   byteArray output();
   output.reserve(outputSize);
   for(word i=0; output.size()<outputSize; ++i) {

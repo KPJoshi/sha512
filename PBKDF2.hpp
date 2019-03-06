@@ -1,8 +1,6 @@
 #ifndef PBKDF2_HPP
 #define PBKDF2_HPP
 
-#include <vector>
-
 #include "util.hpp"
 
 namespace PBKDF2 {

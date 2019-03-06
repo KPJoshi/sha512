@@ -1,5 +1,3 @@
-#include <vector>
-
 #include "HMAC.hpp"
 #include "util.hpp"
 

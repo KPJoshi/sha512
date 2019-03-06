@@ -1,8 +1,6 @@
 #ifndef HMAC_HPP
 #define HMAC_HPP
 
-#include <vector>
-
 #include "util.hpp"
 
 namespace HMAC {
