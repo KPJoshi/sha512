@@ -7,7 +7,7 @@
 
 namespace PBKDF2 {
 
-  byteArray pbkdf2(HMACFunc hmac, byteArray password, byteArray salt, word iterations, word outputSize);
+  byteArray pbkdf2(HMACFunc hmac, word hmacLen, const byteArray& password, byteArray salt, word iterations, word outputSize);
 
 };
 

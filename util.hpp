@@ -11,7 +11,7 @@ typedef std::vector<byte> byteArray;
 
 typedef byteArray (*HashFunc)(const byteArray&);
 
-typedef byteArray (*HMACFunc)(byteArray, const byteArray&, HashFunc, word, word);
+typedef byteArray (*HMACFunc)(const byteArray&, const byteArray&);
 
 namespace Debug {
 
